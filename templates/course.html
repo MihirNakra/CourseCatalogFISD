@@ -1,0 +1,52 @@
+{% extends "landing_layout.html" %}
+
+{% block title %}
+    FISD Course Catalog
+{% endblock %}
+
+{% block main %} 
+
+<div class="margins">
+    <div class="row">
+        <div class="col">
+            <h2 style="margin:0; padding:0;">
+                {{ name }}
+            </h2>
+        </div>
+    
+    </div>
+    <div class="row" style="color:rgb(110, 109, 109);">
+        <div class="col">
+            <p class="prerec" >
+                Prerequisite: {{ prerec }}  <span class="tab"></span>Class Type: {{ ctype }}
+            </p>
+        </div>
+        <div class="col">
+            <p class="grades prerec">
+                Grade Levels: 
+                {% for i in range(grades|length-1) %}
+                    {{ grades[i] }},  
+                
+                {% endfor %}
+
+                {{ grades[grades|length-1]}}
+            </p>
+        </div>
+           
+            
+     
+            
+        
+    </div>
+    
+
+    <p>
+        {{ description }}
+    </p>
+    
+    
+</div>
+
+    
+
+{% endblock %}

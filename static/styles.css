@@ -1,0 +1,303 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+hr
+{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  border: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+
+}
+
+/* Used to style the second type of horizontal spacer */
+.hr2
+{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  border: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+}
+
+/* The style for the banner */
+.homepage-banner {
+    padding: 10rem 1rem;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+    background-image: url(home_banner.jpg);
+    color: #ffffff
+
+
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    
+  }
+
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    /* width: auto; */
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+
+h1 {
+    padding-bottom:2rem;
+}
+
+.form-row {
+    padding-bottom:0rem;
+}
+
+label {
+    float:left;
+}
+
+
+
+.margins
+{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 6vw;
+    margin-bottom: 6vw;
+}
+
+.dash {
+    width:60%;
+    height:100%; 
+    text-align: center; 
+    padding-top:2rem;
+    padding-left:2rem;
+    background-color: white;
+    margin-right:1rem;
+    min-height:30rem;
+    max-height:30rem;
+    overflow:auto;
+}
+
+.dashlist {
+    margin-top:2rem;
+    text-align: left;
+    padding-left: .5rem;
+    box-shadow: inset 0 0 0 .5rem #027ae3;
+    transition:.3s;
+    margin-right:1rem;
+    
+
+
+}
+
+.dashlist:hover 
+{
+    box-shadow: inset 0 0 0 .5rem #5cb85c;
+    transition:.3s;
+}
+
+.buttonright
+{
+    position: absolute;
+    right:    1rem;
+    bottom:   1rem;
+}
+
+.buttonleft
+{
+    position: absolute;
+    left:    1rem;
+    bottom:   1rem;
+}
+
+.lidash
+{
+    margin:.3rem;
+    text-align: left;
+    padding-left: .5rem
+    
+}
+
+.carousel-indicators li {
+    background-color: #999;
+    background-color: rgba(70, 70, 70, 0.25);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #444;
+  }
+
+  .carousel-indicators
+  {
+      bottom: -75px;
+
+  }
+
+
+  .carousel-item {
+    height: 350px;
+    overflow:auto;
+}
+
+
+  .hr3
+  {
+      margin-top: .75rem;
+      margin-bottom: .75rem;
+    
+      border: 1;
+      border-top: 1px solid rgba(0, 0, 0, 0);
+  }
+
+  .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%235cb85c' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    margin-right:1.5rem;
+}
+
+.carousel-control-next-icon {
+    margin-left:1.5rem;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%235cb85c' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.newteam-container
+{
+    max-height: 375px;
+    overflow:auto;
+    margin:0px;
+}
+
+.large-text-area
+{
+    height:6rem;
+}
+
+.three-dots
+{
+    position: absolute; right: 10px; top: 5px; background-color: transparent; border: transparent;
+}
+
+.three-dots:hover
+{
+    position: absolute; right: 10px; top: 5px; background-color: transparent; border: transparent;
+}
+
+.search
+{
+    float: right;
+    width: 85%;
+}
+
+
+
+.centered 
+{
+    text-align: center;
+}
+
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+}
+
+.tall{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+}
+
+.advanced-search
+{
+    max-width: 25vw; 
+    min-width: 25vw; 
+    margin-top: .5rem; 
+    max-height:100%;
+    min-height:100%; 
+    color:black;
+    padding-top:1rem;
+    padding-right:2rem;
+    padding-bottom:5rem;
+}
+
+.full-height
+{
+    max-height:100%;
+    min-height:100%; 
+}
+
+.search-box
+{
+    margin-right:3vw;
+    margin-bottom:1vw;
+}
+
+select.form-control{display:inline-block}
+
+.hr4
+  {
+      margin-top: .4rem;
+      margin-bottom: .4rem;
+    
+      border: 1;
+      border-top: 1px solid rgba(0, 0, 0, 0);
+  }
+.prerec
+  {
+    margin: 0;
+  }
+
+  .tab
+  {
+      display:inline-block;
+      margin-left:2vw;
+  }
+
+  .grades
+  {
+    float:right; 
+    color: rgb(110, 109, 109); 
+  }
+
+  .hr5
+  {
+      margin-top: .05rem;
+      margin-bottom: .05rem;
+    
+      border: 1;
+      border-top: 1px solid rgba(0, 0, 0, 0);
+  }

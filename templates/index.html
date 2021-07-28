@@ -1,0 +1,240 @@
+{% extends "landing_layout.html" %}
+
+{% block title %}
+    FISD Course Catalog
+{% endblock %}
+
+{% block main %} 
+
+<div style="overflow:auto;">
+    
+    <form>
+        <div class="form-group">
+            <div class="row" style="margin:0;">
+                <div class="container border-right col advanced-search" style="padding-left:1.5rem;">
+                    <h5 style="text-align: left; color:gray;">Advanced Search</h5>
+                    <hr class="hr3">
+                    <label form="credit-select" style="font-weight: bold;">Credit Options</label>
+                    <select id="credit-select" class="custom-select" onchange="search();">
+                        <option selected>No Preference</option>
+                        <option>1/2</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <hr class="hr2">
+                    <p style="text-align: left; font-weight: bold;">Grade Options</p>
+                    <div id="grade-select">
+                        
+                        <div class="row">
+                            <div class="col">
+                                <input id="9th" type="checkbox" style="float: right;" onchange="search();">
+                                <label form="9th">9th</label>
+                            </div>
+                            <div class="col">
+                                
+                                <input id="10th" type="checkbox" style="float: right;" onchange="search();">
+                                <label form="10th">10th</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label form="11th">11th</label>
+                                <input id="11th" type="checkbox" style="float: right;" onchange="search();">
+                            </div>
+                            <div class="col">
+                                <label form="12th">12th</label>
+
+                                <input id="12th" type="checkbox" style="float: right;" onchange="search();">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="hr2">
+                    <p style="text-align: left; font-weight: bold;">Class Type Options</p>
+                    <div>
+                        
+                        <div class="row form-inline">
+                            <div class="col">
+                                <label form="isAp" >Advanced?</label>
+                                <select id="isAp" class="custom-select" style="float:right;" onchange="search();">
+                                    <option selected>No Preference</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        <hr class="hr4">
+                        <div class="row form-inline">
+                            <div class="col">
+                                
+                                <select id="isPreAp" class="custom-select" style="float:right;" onchange="search();">
+                                    <option selected>No Preference</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>  
+                                <label form="isPreAp">AP?</label>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <hr class="hr2">
+
+                    <p style="text-align: left; font-weight: bold;">Has Prerequisite?</p>
+
+                    <div class="row">
+                        <div class="col">
+                            <label form="1">Yes</label>
+                            <input id="1" name="prerec" type="radio" onchange="search();">   
+                        </div>
+                        <div class="col">
+                            <label form="2">No</label>
+                            <input id="2" name="prerec" type="radio" onchange="search();">
+                        </div>
+                        <div class="col">
+                            <label form="3">Both</label>
+                            <input id="3" name="prerec" type="radio" onchange="search();">
+                        </div>
+                    </div>
+
+
+                    
+
+                </div>
+                <div class="col" style="max-width: 3rem;">
+
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+                    <script>
+
+                        function clicked()
+                        {
+                            let answer = event.srcElement.text;
+                            // $.get("/course?name=" + answer)
+                            window.location = "/course?name=" + answer
+                            
+                        }
+                        
+                        
+                
+                        function ready()
+                        {
+                                let input = document.getElementById("keywords")
+                                input.addEventListener("keyup", search)
+                        }
+
+                        function search()
+                        {
+                            let input = document.getElementById("keywords");
+                            let ninth = document.getElementById("9th").checked;
+                            let tenth = document.getElementById("10th").checked;
+                            let eleventh = document.getElementById("11th").checked;
+                            let twelveth = document.getElementById("12th").checked;
+                            let yes = document.getElementById("1").checked;
+                            let no = document.getElementById("2").checked;
+                            let both = document.getElementById("3").checked;
+                            let credit = document.getElementById("credit-select").value;
+                            let advanced = document.getElementById("isPreAp").value;
+                            let ap = document.getElementById("isAp").value;
+                            let between = "&";
+                            query = "/search?credit=" + credit + "&advanced=" + advanced + "&ap=" + ap;
+                            if (input.value)
+                            {
+                                query += between + "q=" + input.value;
+                                between = "&"
+                            }
+                            if (ninth)
+                            {
+                                query += between + "ninth=true";
+                                between = "&"
+                            }
+                            if (tenth)
+                            {
+                                query += between + "tenth=true";
+                                between = "&"
+                            }
+                            if (eleventh)
+                            {
+                                query += between + "eleventh=true";
+                                between = "&"
+                            }
+                            if (twelveth)
+                            {
+                                query += between + "twelveth=true";
+                                between = "&"
+                            }
+                            if (yes)
+                            {
+                                query += between + "prerec=yes";
+                                between = "&"
+                            }
+                            if (no)
+                            {
+                                query += between + "prerec=no";
+                                between = "&"
+                            }
+                            if (both)
+                            {
+                                query += between + "prerec=both";
+                                between = "&"
+                            }
+
+
+
+                            $.get(query, function(keywords)
+                            {
+                                console.log(keywords)
+                                let html='';
+                                if (keywords != undefined)
+                                {
+                                    if (keywords.length > 0)
+                                    {
+                                        for (let i = 0; i < keywords.length; i++)
+                                        {
+                                            if (keywords[i][0] != undefined)
+                                            {
+                                                html += "<a onclick=\"clicked()\" class=\"list-group-item list-group-item-action\">" + keywords[i][0] + "</a>";
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                                
+                                
+                                document.getElementById("autocomp").innerHTML = html;
+                                });
+                        }
+                
+                        document.addEventListener("DOMContentLoaded", ready)
+                
+                    </script>
+
+                
+                </div>
+                <div class="container rounded-lg dash col full-height" style="margin: 1rem; color:black; padding-bottom:5rem;">
+                    <h1 class="centered">Search Courses</h1>
+                    <input id="keywords" type="text" placeholder="Keywords" class="search-box form-control" name="keywords">
+                    <div id = "autocomp" class="list-group" style="text-align: left;">
+                        
+
+                    </div>
+
+                </div>
+                <div class="col" style="max-width: 5rem;">
+
+                </div>
+            </div>
+                        
+                                   
+            
+        </div>
+    </form>
+    
+</div>
+
+    
+
+{% endblock %}
