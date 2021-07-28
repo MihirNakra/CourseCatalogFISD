@@ -156,8 +156,10 @@ def search():
         temp = ""
         if started:
             temp = " AND ("
+            temp2=")"
         else:
             temp = ""
+            temp2 = ""
         
         started = True
         
@@ -168,11 +170,11 @@ def search():
                 query += "OR grades LIKE ? "
             
             params.append("%" + str(grades[i]) + "%")
-        query += ")"
+        query += temp2
 
     query += ";"
 
-    # print(params)
+    print(query)
     if started:
         con = sqlite3.connect("catalog.db")
         db = con.cursor()
