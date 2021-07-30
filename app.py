@@ -19,6 +19,10 @@ def after_request(response):
 
 @app.route("/")
 def index():
+    return render_template("landing.html")
+
+@app.route("/search-courses")
+def search_page():
     return render_template("index.html")
 
 
