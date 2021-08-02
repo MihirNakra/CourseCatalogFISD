@@ -139,7 +139,11 @@ def search():
     credit = request.args.get("credit")
 
     if credit != "No Preference":
-        query += "AND credit = ?"
+        if started:
+            query += "AND credit = ?"
+        else:
+            query += " credit = ?"
+            started = True
         params.append(credit)
     
 
