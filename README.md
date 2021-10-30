@@ -12,7 +12,11 @@ One thing I want to note is that my data collection methods weren't perfect due 
 
 # II. Methodology
 
-As I mentioned in the introduction, I used flask and sqlite3 to create this website. The app.py file contains the logic for the website and serves as the backend. It directly accesses the catalog.db database and sends data to the front end, where it is displayed dynamically either using javascript or jinja2's template capabilities. App.py also responds to certain routes of the website, displaying certain html files in correspondence.
+As I mentioned in the introduction, I used flask and sqlite3 to create this website. When planning this project, I determined that the best way to categorize these courses was by a few key data points. Those include if the course has a prerequisite or not, what grade levels can take the course, if the course is advanced (honors), advanced placement (AP), or on-level, and how many credits the course offers. In the future, I plan to implement more of these categories, such as subject, location, and even adding the option for students to add reviews for certain classes.
+
+# III. File Structure
+
+The app.py file contains the logic for the website and serves as the backend. It directly accesses the catalog.db database and sends data to the front end, where it is displayed dynamically either using javascript or jinja2's template capabilities. App.py also responds to certain routes of the website, displaying certain html files in correspondence. 
 
 The /static folder contains the non-html static files, which include the Frisco ISD icon and my custom css file
 
